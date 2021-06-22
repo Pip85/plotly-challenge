@@ -159,36 +159,67 @@ function init() {
         Plotly.newPlot("bar", data, layout);
 
         // Create initial Bubble Chart
-        samples.forEach((keys) => {
-            console.log(keys);
-            Object.entries(keys).forEach(([key,value]) => {
-                console.log(key, value);
-                var allIds = keys.otu_ids;
-                var allValues = keys.sample_values;
-                var allLabels = keys.otu_labels;
-                console.log(allIds);
-                console.log(allValues);
-                console.log(allLabels)
+        var allIds = [];
+        var allValues = [];
+        var allLabels = [];
+
+        samples.forEach((item) => {
+            Object.entries(item).forEach(([key, value]) => {
+                if (key === "otu_ids") {
+                    if (!(value in allIds)) {
+                        allIds.push(value)
+                    };
+                };    
             });
-        })
+        })        
+        //         }
+        //         else if (key === "sample_values") {
+        //             allValues.push(value);
+        //         }
+        //         else {
+        //             allLabels.push(value);
+        //         }
+        //     });              
+        // })
+
+        // console.log(allIds);
+        // console.log(allValues);
+        // console.log(allLabels) 
+
+        var allIds = samples.map(item => {
+            return item.otu_ids;
+        });
+        console.log(allIds);
+
+        // samples.forEach((keys) => {
+        //     console.log(keys);
+        //     Object.entries(keys).forEach(([key,value]) => {
+        //         console.log(key, value);
+        //         var allIds = keys.otu_ids;
+        //         var allValues = keys.sample_values;
+        //         var allLabels = keys.otu_labels;
+        //         console.log(allIds);
+        //         console.log(allValues);
+        //         console.log(allLabels)
+
+        //         var trace2 = {
+        //             x: allIds,
+        //             y: allValues,
+        //             mode: "markers",
+        //             marker: {
+        //                 size: allIds
+        //             }        
+        //         }
         
-
-        // var trace2 = {
-        //     x: allIds,
-        //     y: allValues,
-        //     mode: "markers",
-        //     marker: {
-        //         size: allIds
-        //     }        
-        // }
-
-        // var bubbleData = [trace2];
-
-        // var layout = {
-        //     title:  "Bacteria Cultures per Sample"
-        // }
-
-        // Plotly.newPlot("bubble", bubbleData, layout); 
-    });
+        //         var bubbleData = [trace2];
+        
+        //         var layout = {
+        //             title:  "Bacteria Cultures per Sample"
+        //         }
+        
+        //         Plotly.newPlot("bubble", bubbleData, layout); 
+        //     });
+        // })
+    });           
 }
 init();
