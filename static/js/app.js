@@ -2,6 +2,17 @@
 // Create dashboard for Belly Button Biodiversity
 //======================================================================
 
+// Load drop down with sample numbers
+// d3.json("data/samples.json").then((sampleData) => {
+//     var bellyData = sampleData;
+//     console.log(bellyData); 
+
+//     var bellySample = bellyData.names;
+//     console.log(bellySample);
+// })
+
+
+
 // Create initial bar and bubble charts
 //----------------------------------------------------------------------
 
@@ -15,8 +26,66 @@ function init() {
         // Pulling samples and metadata key values into variables
         var samples = initialData.samples;
         var meta = initialData.metadata;
+        var names = initialData.names;     
+              
         console.log(samples);
         console.log(meta);
+        console.log(names);
+
+        // Set up drop down sample values
+        var dataOpt = d3.select("#selDataset");
+        names.forEach((sample) => (
+            dataOpt
+            .append("option")
+            .text(sample)
+            .property("value", sample)
+        ))
+
+        // d3.select("#selDataset").on("change", optionChanged);
+        // function optionChanged() {
+        //     var sampleData = d3.select("#selDataset");
+        //     var samplePick = sampleData.property("value");
+        //     console.log(samplePick)
+        // }
+        
+        // document.getElementById("#selDataset").onchange = function() {optionChanged()};
+
+        // function optionChanged() {
+        // var sampleData = document.getElementById("#selDataset");
+        // console.log(sampleData);
+        // }
+       
+    //    var samplePick = d3.select("onchange").on("change", optionChanged);
+    //         function optionChanged() {
+    //             var sampleData = d3.select("#selDataset");
+    //             var samplePick = sampleData.property("value");
+    //             .append("this.value")
+    // //         }
+
+    // d3.select(onchange).on("change", optionChanged); 
+    // function optionChanged() {
+    //     console.log(this.value);
+    // }
+       
+
+    //Do it in JS
+    // function optionChanged() {
+    //     var sampleData = d3.select("#selDataset");
+    //     var samplePick = sampleData.property("value");
+    //     console.log(samplePick);
+    // }
+    // d3.select("#selDataset").on("change", optionChanged);  
+
+
+   
+   
+       
+       
+       
+       
+        // .append(dataOpt)
+        // .on('change',function() { update(this.value, this.options[this.value].text) }); // note: since you are setting value equal to the index, you can also use this.value instead of this.selectedIndex
+
 
         // Pulling initial sample and meta values only
         var initialSample = samples[0];
@@ -42,7 +111,12 @@ function init() {
         }
         var data = [trace1];
         var layout = {
-            title:  "Top Ten Bacteria Cultures Found"
+            title:  "Top Ten Bacteria Cultures Found",
+            yaxis: {
+                "tickmode": "array",
+                "tickvals": ["valueSlice"],
+                "ticktext": ["idSlice"]
+            }
         }
         Plotly.newPlot("bar", data, layout);
 
@@ -70,6 +144,19 @@ function init() {
             title:  "Bacteria Cultures Per Sample"
         }
         Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
+        // Create initial demo data
+        var firstMeta = d3.select(".panel-body");
+        Object.entries(initialMeta).forEach(([key, value]) => {
+            var initialDemo = (key, value);
+            console.log(initialDemo);
+            firstMeta.text(initialDemo)
+        });
     });    
 }
 init();
+
+ //Do it in HTML
+ function optionChangedVal(val) {
+    console.log(val);
+}
