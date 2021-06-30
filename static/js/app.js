@@ -53,7 +53,7 @@ function chartData(bbData) {
     // Get samples.json data for dropdown sample choice
     samplePickValue = sampleObj.filter(sample => sample.id === samplePick);
     metaPickValue = metaObj.filter(meta => String(meta.id) === samplePick);
-    
+
     // Call functions to build charts/demo panel
     barChart(samplePickValue);
     bubbleChart(samplePickValue);
@@ -67,13 +67,14 @@ function barChart(samplePickValue) {
     var sampleValues = samplePickValue[0].sample_values;
     var otuIds = samplePickValue[0].otu_ids;
     var otuLabels = samplePickValue[0].otu_labels;
+    var yticks = otuIds.slice(0, 10).map(otu => `OTU ${otu}`).reverse();
 
     var trace1 = {
-        x: sampleValues.slice(0,10),        
-        y: otuIds.slice(0,10),
+        x: sampleValues.slice(0,10).reverse(),        
+        y: yticks,
         type: "bar",
         orientation: "h",
-        text: otuLabels.slice(0,10)                 
+        text: otuLabels.slice(0,10).reverse()                 
     };
    
     var data = [trace1];
@@ -82,11 +83,7 @@ function barChart(samplePickValue) {
         title:  "<b>Top Ten Bacteria Cultures Found<b>",
         margin: {
             t: 90        
-        },           
-        yaxis: {
-        tickprefix: "OTU ",
-        tickvals: otuIds.slice(0,10),
-        }
+        }  
     };
 
     Plotly.newPlot("bar", data, layout);
