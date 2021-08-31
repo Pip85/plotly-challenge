@@ -52,8 +52,8 @@ Student project - Build a web dashboard showcasing data from the Belly Button Di
 * Project URL:  http://robdunnlab.com/projects/belly-button-biodiversity/.  Below is a snippet 
 about the project taken directly from the project site:
 
-* **Belly Button Biodiversity**
-  * Public Science | Your Wild Life Projects
+### **Belly Button Biodiversity**
+* Public Science | Your Wild Life Projects
 *   The coolest study of biodiversity on the human body on the planet!
 *   The belly button is one of the habitats closest to us, and yet it remains relatively unexplored.
 *   In January 2011, we launched Belly Button Biodiversity to investigate the microbes inhabiting our
@@ -61,14 +61,16 @@ about the project taken directly from the project site:
 * In addition to inspiring scientific curiosity, Belly Button Biodiversity inspired 
 conversations about the beneficial roles microbes play in our daily lives.
 
-**People**
-Dan Fergus, Post-doc
-Sarah Council, Post-doc, NC Museum of Natural Sciences and NC Central University
+* **People**
+  * Dan Fergus, Post-doc<br>
+  * Sarah Council, Post-doc, NC Museum of Natural Sciences and NC Central University<br>
 
-**Project Publications**
-Hulcr, J., Latimer, A. M., Henley, J. B., Rountree, N. R.**, Fierer, N., Lucky, A., 
-Lowman, M. D., Dunn RR 2012. A jungle in there: bacteria in belly buttons are highly diverse,
-but predictable. PLoS ONE 7(11): e47712. doi:10.1371/journal.pone.0047712
+* **Project Publications**
+  * Hulcr, J., Latimer, A. M., Henley, J. B., Rountree, N. R.**, Fierer, N., Lucky, A., 
+    Lowman, M. D., Dunn RR 2012.<br>
+  * A jungle in there: bacteria in belly buttons are highly diverse,
+    but predictable.<br>
+  * PLoS ONE 7(11): e47712. doi:10.1371/journal.pone.0047712
 
 ## **acknowledgement**
 
@@ -90,6 +92,6 @@ but predictable. PLoS ONE 7(11): e47712. doi:10.1371/journal.pone.0047712
 * Once another sample is selected in the dropdown, the data updates for that sample.  
 * The web page is published through GitHub Pages.
 
-![page1]()
-![page2]()
+![page1](https://github.com/Pip85/plotly-challenge/blob/main/images/dashboard_pg1.png)
+![page2](https://github.com/Pip85/plotly-challenge/blob/main/images/dashboard_pg2.png)
 
